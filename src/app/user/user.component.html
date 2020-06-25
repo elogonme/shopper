@@ -1,0 +1,37 @@
+<div class="spinner" *ngIf="loading$ | async">
+  <mat-spinner color="accent"></mat-spinner>
+</div>
+
+<mat-card class="mat-elevation-z10">
+  <mat-card-header>
+    <mat-card-title class="title--centered">Sign in</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content [formGroup]="form">
+    <mat-form-field>
+      <input  matInput placeholder="User name" formControlName="username">
+      <mat-error>
+        Username must be min 5 letters or numbers only
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input  matInput placeholder="Password" formControlName="password" type="password">
+      <mat-error>
+        Password must be min 5 letters and numbers
+      </mat-error>
+    </mat-form-field>
+
+    <mat-error *ngIf="failedLogin$ | async" >Login Failed. Check your password and username!</mat-error>
+
+  </mat-card-content>
+
+  <mat-dialog-actions class="dialog-actions">
+    <button class="mat-raised-button mat-primary" (click)="login()" [disabled]="!form.valid">Login</button>
+
+    <button class="mat-raised-button mat-secondary" (click)="signup()" [disabled]="!form.valid">New user</button>
+  </mat-dialog-actions>
+
+</mat-card>
+
+

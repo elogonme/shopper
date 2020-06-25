@@ -1,0 +1,12 @@
+mat-tab-label {
+  color: #3b3b3b !important;
+}
+
+.spinner {
+  width: 10px;
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 45vw;
+  margin-right: auto;
+  z-index: 11;
+}

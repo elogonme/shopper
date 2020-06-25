@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Edit Item</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <input  matInput placeholder="Item description" formControlName="description" maxlength="30">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Category" formControlName="category">
+      <mat-option *ngFor="let item of categories" [value]="item">{{item}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input  matInput placeholder="Quantity" formControlName="quantity" maxlength="5" pattern="[0-9]+">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input  matInput placeholder="Unit" formControlName="unit" maxlength="5">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input  matInput placeholder="Shop" formControlName="shopId" maxlength="20">
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button class="mat-raised-button mat-primary" (click)="save()" [disabled]="!form.valid">Save</button>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+</mat-dialog-actions>
+

@@ -1,0 +1,25 @@
+<div class="top-menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+
+    <mat-icon>menu</mat-icon>
+
+  </button>
+
+  <mat-menu #menu>
+
+    <button mat-menu-item routerLink="login">
+      <mat-icon>account_box</mat-icon>
+      <span>Login</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Exit</span>
+    </button>
+
+  </mat-menu>
+
+  <button mat-button class="mat-raised-button mat-primary btn-clear" (click)="clearList()"
+  *ngIf="(loggedIn$ | async) >0">Clear Shopping List</button>
+
+  <img mat-card-sm-image src='assets/shopper.png' class="logo">
+</div>

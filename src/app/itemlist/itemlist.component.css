@@ -1,0 +1,45 @@
+table {
+  align-self: center;
+  margin: auto;
+  width: 95%;
+  max-width: 800px;
+}
+
+th.mat-header-cell {
+  padding: 0 15px;
+  background-color: #fff5e6;
+  text-align: justify;
+}
+
+td.mat-cell {
+  text-align: justify;
+  padding-left: 15px;
+}
+
+mat-checkbox {
+  padding-left: 10px;
+}
+
+.spinner {
+  width: 100px;
+  position: fixed;
+  margin: 80px 45%;
+}
+
+.mat-paginator.paginator--centered {
+  display: flex;
+  justify-content: center;
+}
+
+.x-rows {
+  text-decoration-line: line-through;
+}
+
+@media only screen and (max-width: 1080px) {
+  table {
+    align-self: center;
+    margin: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,57 @@
+<div class="spinner" *ngIf="loading$ | async">
+  <mat-spinner color="accent"></mat-spinner>
+</div>
+
+<mat-card class="mat-elevation-z10">
+  <mat-card-header>
+    <mat-card-title class="title--centered">Add New Item to Shopping List</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content [formGroup]="form">
+    <mat-form-field>
+      <input  matInput placeholder="Item description" formControlName="description" maxlength="30">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Category" formControlName="category">
+        <mat-option *ngFor="let item of categories" [value]="item">{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input  matInput placeholder="Quantity" formControlName="quantity" maxlength="5">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input  matInput placeholder="Unit" formControlName="unit" maxlength="5">
+    </mat-form-field>
+<!--
+    <mat-form-field>
+      <input type="text"  matInput placeholder="Shop" formControlName="shopId" [matAutocomplete]="auto" maxlength="20">
+    </mat-form-field>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+    </mat-autocomplete>
+-->
+  <mat-form-field>
+    <input type="text" matInput placeholder="Shop" formControlName="shopId" [matAutocomplete]="auto" maxlength="20">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="filterShops()">
+      <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+          {{option}}
+       </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <h5 class="msg-saved" [ngStyle] = "{visibility: itemSaved}">Item saved</h5>
+
+  </mat-card-content>
+
+  <mat-dialog-actions class="dialog-actions">
+    <button class="mat-raised-button mat-primary" (click)="save()" [disabled]="!form.valid">Save</button>
+    <button class="mat-raised-button" (click)="form.reset()">Clear</button>
+  </mat-dialog-actions>
+
+</mat-card>
+
+

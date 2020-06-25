@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Warning!</h2>
+
+<mat-dialog-content>
+
+  <h3>All items from list</h3>
+  <h3>will be deleted!</h3>
+  <h3>Are you sure?</h3>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button class="mat-raised-button mat-accent" (click)="close('yes')">Yes</button>
+  <button class="mat-raised-button" (click)="close('no')">No</button>
+</mat-dialog-actions>
+

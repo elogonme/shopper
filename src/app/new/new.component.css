@@ -1,0 +1,55 @@
+
+.mat-form-field {
+  display: block;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  align-self: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 60%;
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.mat-raised-button {
+  margin: 0 10px;
+}
+
+.msg-saved {
+  display: block;
+  text-align: center;
+
+  font-size: larger;
+  color:#ef6c00;
+}
+
+.spinner {
+  width: 10px;
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 45vw;
+  margin-right: auto;
+  z-index: 11;
+}
+
+@media only screen and (max-width: 1080px) {
+mat-card {
+  width: 100%;
+  font-size: 20px;
+  }
+
+  mat-card-content {
+    font-size: 20px;
+    }
+}
+
