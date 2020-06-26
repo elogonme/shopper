@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
 export class UserService {
-  private serverUrl = 'https://items-server.uk.r.appspot.com:3000';
+  private serverUrl = 'https://items-server.uk.r.appspot.com';
   // private serverUrl = '';
 
   constructor(private http: HttpClient) { }

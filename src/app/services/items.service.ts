@@ -18,7 +18,7 @@ export class ItemsService {
   private loadingSubject = new BehaviorSubject<boolean>(false);
   public loading$ = this.loadingSubject.asObservable();
   public itemsLength$ = this.itemsLengthSubject.asObservable();
-  private serverUrl = 'https://items-server.uk.r.appspot.com:3000';
+  private serverUrl = 'https://items-server.uk.r.appspot.com';
   // private serverUrl = '';
 
   constructor(private http: HttpClient) {
@@ -78,7 +78,7 @@ export class ItemsService {
       'Content-Type': 'application/x-www-form-urlencoded'
     });
     const body = new HttpParams().set('status', status);
-    return this.http.patch(`/items/${item.id}/status`, body, { headers } );
+    return this.http.patch(this.serverUrl + `/items/${item.id}/status`, body, { headers } );
   }
 
   clearList() {
