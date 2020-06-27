@@ -21,6 +21,10 @@ mat-card {
   margin: auto;
 }
 
+.new-item__category {
+  text-align: center;
+}
+
 .mat-raised-button {
   margin: 0 10px;
 }
@@ -44,12 +48,12 @@ mat-card {
 
 @media only screen and (max-width: 1080px) {
 mat-card {
-  width: 100%;
+  width: auto;
   font-size: 20px;
   }
 
   mat-card-content {
-    font-size: 20px;
+    font-size: 15px;
     }
 }
 

@@ -39,7 +39,6 @@ mat-checkbox {
   table {
     align-self: center;
     margin: auto;
-    width: 100%;
     max-width: 100%;
   }
 }
