@@ -6,7 +6,7 @@ table {
 }
 
 th.mat-header-cell {
-  padding: 0 15px;
+  padding: 0 0 0 10px;
   background-color: #fff5e6;
   text-align: justify;
 }
@@ -21,10 +21,18 @@ mat-checkbox {
 }
 
 .spinner {
-  width: 100px;
   position: fixed;
-  margin: 80px 45%;
-}
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: 180px auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(-100%);
+  }
 
 .mat-paginator.paginator--centered {
   display: flex;

@@ -28,9 +28,9 @@ export class NewComponent implements OnInit {
     private fb: FormBuilder) {
 
     this.form = fb.group( {
-      description: [this.item.description, [Validators.pattern('[a-zA-Z ]*'), Validators.minLength(1),
+      description: [this.item.description, [Validators.minLength(1),
         Validators.maxLength(20), Validators.required]],
-      unit: [this.item.unit, [Validators.pattern('[a-zA-Z ]*'), Validators.minLength(1),
+      unit: [this.item.unit, [Validators.minLength(1),
         Validators.maxLength(5)]],
       quantity: [this.item.quantity, [Validators.pattern('[0-9]*'), Validators.minLength(1),
         Validators.maxLength(5), Validators.required]],
