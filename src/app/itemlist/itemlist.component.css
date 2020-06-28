@@ -1,8 +1,17 @@
 table {
   align-self: center;
   margin: auto;
-  width: 95%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1100px;
+
+}
+
+th.mat-header-cell:first-of-type {
+  padding-left: 5px;
+}
+
+td.mat-cell:first-of-type {
+  padding-left: 5px;
 }
 
 th.mat-header-cell {
@@ -41,12 +50,4 @@ mat-checkbox {
 
 .x-rows {
   text-decoration-line: line-through;
-}
-
-@media only screen and (max-width: 1080px) {
-  table {
-    align-self: center;
-    margin: auto;
-    max-width: 100%;
-  }
 }

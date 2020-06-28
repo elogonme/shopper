@@ -90,7 +90,6 @@ export class ItemlistComponent implements OnInit, OnDestroy, AfterViewInit {
     () => {
       this.itemsService.initItems();
       this.updateTable();
-      console.log(`Checked items deleted`)
     }
   );
 
