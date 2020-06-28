@@ -23,9 +23,9 @@ export class ItemDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) item: Item) {
     this.item = item;
     this.form = fb.group( {
-        description: [item.description, [Validators.pattern('[a-zA-Z ]*'), Validators.minLength(1),
+        description: [item.description, [Validators.minLength(1),
           Validators.maxLength(20), Validators.required]],
-        unit: [item.unit, [Validators.pattern('[a-zA-Z ]*'), Validators.minLength(1),
+        unit: [item.unit, [Validators.minLength(1),
           Validators.maxLength(5)]],
         quantity: [item.quantity, [Validators.pattern('[0-9]*'), Validators.minLength(1),
           Validators.maxLength(5), Validators.required]],
