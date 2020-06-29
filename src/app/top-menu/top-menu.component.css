@@ -24,9 +24,10 @@
 }
 
 .app-title {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   color: #FFF;
   text-align: center;
-  margin: 10px auto;
+  margin: 10px auto 0px auto;
+  padding-right: 5px;
 }
