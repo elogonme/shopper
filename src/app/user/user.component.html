@@ -22,7 +22,8 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-error *ngIf="failedLogin$ | async" >Login Failed. Check your password and username!</mat-error>
+    <mat-error *ngIf="failedLogin$ | async">Login Failed. Check your password and username!</mat-error>
+    <mat-error class="user-created-success" *ngIf="userCreated$ | async">User created successfully!</mat-error>
 
   </mat-card-content>
 

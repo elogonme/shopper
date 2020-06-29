@@ -28,11 +28,12 @@ export class UserComponent implements OnInit {
       username: ['TestUser', [Validators.minLength(5),
         Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9]+$'), Validators.required]],
       password: ['Testpassword123', [Validators.minLength(5),
-      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
+      Validators.pattern('^(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]+$'), Validators.required]],
     });
   }
 
   loading$ = new BehaviorSubject<boolean>(false);
+  userCreated$ = new BehaviorSubject<boolean>(false);
 
   ngOnInit(): void {
   }
@@ -60,7 +61,10 @@ async login() {
     const val = this.form.value;
     try {
       const result = await this.userService.signNewUser(val.username, val.password);
+      console.log('user created');
+      this.userCreated$.next(true);
       this.loading$.next(false);
+      this.failedLoginSubject$.next(false);
     }
     catch (err) {
       if (err) {

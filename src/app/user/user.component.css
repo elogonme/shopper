@@ -15,6 +15,14 @@ mat-card {
   width: 60%;
 }
 
+.mat-error {
+  font-size: 0.8rem;
+}
+
+.user-created-success {
+  color: #4caf50;
+}
+
 .mat-card-header {
   display: flex;
   justify-content: center;
