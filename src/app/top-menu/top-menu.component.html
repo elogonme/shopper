@@ -21,5 +21,7 @@
   <button mat-button class="mat-raised-button mat-primary btn-clear" (click)="clearList()"
   *ngIf="(loggedIn$ | async) >0">Clear Shopping List</button>
 
+  <h2 *ngIf="!((loggedIn$ | async) >0)" class="app-title">Personal Shopping List</h2>
+
   <img mat-card-sm-image src='assets/shopper.png' class="logo">
 </div>

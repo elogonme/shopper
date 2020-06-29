@@ -3,8 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ItemsService } from '../services/items.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-top-menu',
@@ -20,7 +19,6 @@ export class TopMenuComponent implements OnInit {
   loggedIn$: Observable<number>;
 
   ngOnInit(): void {
-   // if (!localStorage.getItem('authJwtToken')) {}
     this.loggedIn$ = this.itemsService.itemsLength$;
   }
 

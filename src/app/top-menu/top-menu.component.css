@@ -22,3 +22,11 @@
   margin: auto;
   padding: 0 8px;
 }
+
+.app-title {
+  font-size: 15px;
+  font-weight: 400;
+  color: #FFF;
+  text-align: center;
+  margin: 10px auto;
+}
