@@ -65,7 +65,7 @@ export class ItemsService {
   }
 
   deleteChecked() {
-    return this.http.post(this.serverUrl + 'items/delete', '');
+    return this.http.post(this.serverUrl + '/items/delete', '');
   }
 
   doneItem(item: Item) {

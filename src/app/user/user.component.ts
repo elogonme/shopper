@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
       username: ['TestUser', [Validators.minLength(5),
         Validators.maxLength(20), Validators.pattern('[a-zA-Z0-9]+$'), Validators.required]],
       password: ['Testpassword123', [Validators.minLength(5),
-      Validators.pattern('^(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9]+$'), Validators.required]],
+      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'), Validators.required]],
     });
   }
 
