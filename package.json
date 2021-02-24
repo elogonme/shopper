@@ -6,7 +6,7 @@
     "start": "ng serve",
     "start:dev": "ng serve --proxy-config ./proxy.json",
     "server": "ts-node -P ./server/server.tsconfig.json ./server/server.ts",
-    "build": "ng build --prod --base-href /shopper/",
+    "build": "ng build --prod",
     "build:git": "ng build --prod --output-path docs --base-href /shopper/",
     "test": "ng test",
     "lint": "ng lint",
