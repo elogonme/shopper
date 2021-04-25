@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Observable, of} from 'rxjs';
-import {catchError, finalize, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, finalize, tap } from 'rxjs/operators';
 import { Item } from '../model/item';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ItemsService {
-
   private shopsListSubject = new BehaviorSubject<string[]>([]);
   private itemsListSubject = new BehaviorSubject<Item[]>([]);
   private itemsLengthSubject = new BehaviorSubject<number>(0);
@@ -18,27 +18,37 @@ export class ItemsService {
   private loadingSubject = new BehaviorSubject<boolean>(false);
   public loading$ = this.loadingSubject.asObservable();
   public itemsLength$ = this.itemsLengthSubject.asObservable();
-  private serverUrl = 'http://shopperserver-env.eba-ycg2eh3f.eu-west-1.elasticbeanstalk.com';
-  // private serverUrl = '';
+  // private serverUrl = 'http://shopperserver-env.eba-ycg2eh3f.eu-west-1.elasticbeanstalk.com';
+  private serverUrl = environment.backend_url;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   initItems() {
     this.loadingSubject.next(true);
-    return this.http.get(this.serverUrl + '/items')
+    return this.http
+      .get(this.serverUrl + '/items')
       .pipe(
         tap(() => console.log('HTTP request executed - items')),
         catchError(() => of([])),
         finalize(() => {
-          this.loadingSubject.next(false); })
+          this.loadingSubject.next(false);
+        })
       )
-      .subscribe(res => {
+      .subscribe((res) => {
         const items = res;
         this.itemsListSubject.next(Object.values(items));
-        console.log('List of items retrieved from Server', Object.values(items).length);
+        console.log(
+          'List of items retrieved from Server',
+          Object.values(items).length
+        );
         this.itemsLengthSubject.next(Object.values(items).length);
-        const shops = this.shops.concat([...new Set(Object.values(items).map(a => a.shopId).sort())]) ;
+        const shops = this.shops.concat([
+          ...new Set(
+            Object.values(items)
+              .map((a) => a.shopId)
+              .sort()
+          ),
+        ]);
         this.shopsListSubject.next(shops); // Retrieve list of shops from items list;
       });
   }
@@ -48,7 +58,7 @@ export class ItemsService {
     this.itemsLengthSubject.next(0);
   }
 
-  getShops(): Observable<string[]>{
+  getShops(): Observable<string[]> {
     return this.shopsList$;
   }
 
@@ -72,17 +82,19 @@ export class ItemsService {
     let status = '';
     if (item.status === 'DONE') {
       status = 'OPEN';
-    } else { status = 'DONE';
-  }
+    } else {
+      status = 'DONE';
+    }
     const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
     });
     const body = new HttpParams().set('status', status);
-    return this.http.patch(this.serverUrl + `/items/${item.id}/status`, body, { headers } );
+    return this.http.patch(this.serverUrl + `/items/${item.id}/status`, body, {
+      headers,
+    });
   }
 
   clearList() {
     return this.http.post(this.serverUrl + 'items/deleteall', '');
   }
-
 }
