@@ -2,37 +2,52 @@
   <mat-spinner color="accent"></mat-spinner>
 </div>
 
-<mat-card class="mat-elevation-z10">
+<mat-card>
   <mat-card-header>
     <mat-card-title class="title--centered">Sign in</mat-card-title>
   </mat-card-header>
 
   <mat-card-content [formGroup]="form">
     <mat-form-field>
-      <input  matInput placeholder="User name" formControlName="username">
-      <mat-error>
-        Username must be min 5 letters or numbers only
-      </mat-error>
+      <input matInput placeholder="User name" formControlName="username" />
+      <mat-error> Username must be min 5 letters or numbers only </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input  matInput placeholder="Password" formControlName="password" type="password">
+      <input
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+      />
       <mat-error>
         Password must be Upper/Lowercase and min 5 letters and numbers
       </mat-error>
     </mat-form-field>
 
-    <mat-error *ngIf="failedLogin$ | async">Login Failed. Check your password and username!</mat-error>
-    <mat-error class="user-created-success" *ngIf="userCreated$ | async">User created successfully!</mat-error>
-
+    <mat-error *ngIf="failedLogin$ | async"
+      >Login Failed. Check your password and username!</mat-error
+    >
+    <mat-error class="user-created-success" *ngIf="userCreated$ | async"
+      >User created successfully!</mat-error
+    >
   </mat-card-content>
 
   <mat-dialog-actions class="dialog-actions">
-    <button class="mat-raised-button mat-primary" (click)="login()" [disabled]="!form.valid">Login</button>
+    <button
+      class="mat-raised-button mat-primary"
+      (click)="login()"
+      [disabled]="!form.valid"
+    >
+      Login
+    </button>
 
-    <button class="mat-raised-button mat-secondary" (click)="signup()" [disabled]="!form.valid">New user</button>
+    <button
+      class="mat-raised-button mat-secondary"
+      (click)="signup()"
+      [disabled]="!form.valid"
+    >
+      New user
+    </button>
   </mat-dialog-actions>
-
 </mat-card>
-
-

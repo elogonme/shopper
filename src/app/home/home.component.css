@@ -10,3 +10,7 @@ mat-tab-label {
   margin-right: auto;
   z-index: 11;
 }
+
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+  display: none !important;
+}
