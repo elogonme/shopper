@@ -18,9 +18,8 @@ export class ItemsService {
   private loadingSubject = new BehaviorSubject<boolean>(false);
   public loading$ = this.loadingSubject.asObservable();
   public itemsLength$ = this.itemsLengthSubject.asObservable();
-  private serverUrl =
-    'http://shopperserver-env.eba-ycg2eh3f.eu-west-1.elasticbeanstalk.com';
-  // private serverUrl = environment.backend_url;
+  // private serverUrl ='http://shopperserver-env.eba-ycg2eh3f.eu-west-1.elasticbeanstalk.com';
+  private serverUrl = environment.backend_url;
 
   constructor(private http: HttpClient) {}
 

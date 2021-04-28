@@ -1,7 +1,8 @@
-
-
-<mat-tab-group mat-align-tabs="center" [selectedIndex]="selected.value"
-               (selectedIndexChange)="selected.setValue($event)">
+<mat-tab-group
+  mat-align-tabs="center"
+  [selectedIndex]="selected.value"
+  (selectedIndexChange)="selected.setValue($event)"
+>
   <mat-tab *ngFor="let tab of tabs$ | async; let index = index" [label]="tab">
     <div class="spinner" *ngIf="!(tabs$ | async)">
       <mat-spinner color="accent"></mat-spinner>
@@ -10,6 +11,5 @@
     <app-new *ngIf="selected.value === 0"></app-new>
 
     <app-itemlist *ngIf="selected.value >= 1" [shopId]="tab"></app-itemlist>
-
   </mat-tab>
 </mat-tab-group>
