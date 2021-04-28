@@ -9,6 +9,21 @@
     >
   </mat-card-header>
 
+  <mat-dialog-actions class="dialog-actions">
+    <button
+      class="mat-raised-button mat-primary"
+      (click)="save()"
+      [disabled]="!form.valid"
+    >
+      Save
+    </button>
+    <button class="mat-raised-button" (click)="form.reset()">Clear</button>
+  </mat-dialog-actions>
+
+  <h5 class="msg-saved" [ngStyle]="{ visibility: itemSaved }">
+    Saved - enter next item
+  </h5>
+
   <mat-card-content [formGroup]="form">
     <mat-form-field>
       <input
@@ -29,19 +44,25 @@
         >
       </mat-select>
     </mat-form-field>
+    <div class="inline">
+      <mat-form-field class="inline-two">
+        <input
+          matInput
+          placeholder="Quantity"
+          formControlName="quantity"
+          maxlength="5"
+        />
+      </mat-form-field>
 
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Quantity"
-        formControlName="quantity"
-        maxlength="5"
-      />
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Unit" formControlName="unit" maxlength="5" />
-    </mat-form-field>
+      <mat-form-field class="inline-two">
+        <input
+          matInput
+          placeholder="Unit"
+          formControlName="unit"
+          maxlength="5"
+        />
+      </mat-form-field>
+    </div>
     <!--
     <mat-form-field>
       <input type="text"  matInput placeholder="Shop" formControlName="shopId" [matAutocomplete]="auto" maxlength="20">
@@ -55,7 +76,7 @@
       <input
         type="text"
         matInput
-        placeholder="Shop"
+        placeholder="Shop (enter or select)"
         formControlName="shopId"
         [matAutocomplete]="auto"
         maxlength="20"
@@ -69,18 +90,5 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-
-    <h5 class="msg-saved" [ngStyle]="{ visibility: itemSaved }">Item saved</h5>
   </mat-card-content>
-
-  <mat-dialog-actions class="dialog-actions">
-    <button
-      class="mat-raised-button mat-primary"
-      (click)="save()"
-      [disabled]="!form.valid"
-    >
-      Save
-    </button>
-    <button class="mat-raised-button" (click)="form.reset()">Clear</button>
-  </mat-dialog-actions>
 </mat-card>

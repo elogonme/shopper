@@ -1,6 +1,14 @@
-
 .mat-form-field {
   display: block;
+}
+
+.inline {
+  display: flex;
+}
+
+.inline-two {
+  width: 50%;
+  margin: auto;
 }
 
 .dialog-actions {
@@ -33,8 +41,8 @@ mat-card {
   display: block;
   text-align: center;
 
-  font-size: larger;
-  color:#ef6c00;
+  font-size: large;
+  color: #4caf50;
 }
 
 .spinner {
@@ -47,13 +55,12 @@ mat-card {
 }
 
 @media only screen and (max-width: 1080px) {
-mat-card {
-  width: inherit;
-  font-size: 20px;
+  mat-card {
+    width: inherit;
+    font-size: 20px;
   }
 
   mat-card-content {
     font-size: 15px;
-    }
+  }
 }
-
