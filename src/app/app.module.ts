@@ -36,6 +36,8 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { UserComponent } from './user/user.component';
 import { UserService } from './services/user.service';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,8 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    StorageServiceModule
+    StorageServiceModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ItemsService,
