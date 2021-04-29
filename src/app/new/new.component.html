@@ -9,17 +9,6 @@
     >
   </mat-card-header>
 
-  <mat-dialog-actions class="dialog-actions">
-    <button
-      class="mat-raised-button mat-primary"
-      (click)="save()"
-      [disabled]="!form.valid"
-    >
-      Save
-    </button>
-    <button class="mat-raised-button" (click)="form.reset()">Clear</button>
-  </mat-dialog-actions>
-
   <h5 class="msg-saved" [ngStyle]="{ visibility: itemSaved }">
     Saved - enter next item
   </h5>
@@ -33,17 +22,36 @@
         maxlength="30"
       />
     </mat-form-field>
-
-    <mat-form-field>
-      <mat-select placeholder="Category" formControlName="category">
-        <mat-option
-          class="new-item__category"
-          *ngFor="let item of categories"
-          [value]="item"
-          >{{ item }}</mat-option
-        >
-      </mat-select>
-    </mat-form-field>
+    <div class="inline">
+      <mat-form-field class="inline-two">
+        <mat-select placeholder="Category" formControlName="category">
+          <mat-option
+            class="new-item__category"
+            *ngFor="let item of categories"
+            [value]="item"
+            >{{ item }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="inline-two">
+        <input
+          type="text"
+          matInput
+          placeholder="Shop (enter or select)"
+          formControlName="shopId"
+          [matAutocomplete]="auto"
+          maxlength="20"
+        />
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="filterShops()">
+          <mat-option
+            *ngFor="let option of filteredOptions$ | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
     <div class="inline">
       <mat-form-field class="inline-two">
         <input
@@ -63,6 +71,16 @@
         />
       </mat-form-field>
     </div>
+    <mat-dialog-actions class="dialog-actions">
+      <button
+        class="mat-raised-button mat-primary"
+        (click)="save()"
+        [disabled]="!form.valid"
+      >
+        Save
+      </button>
+      <button class="mat-raised-button" (click)="form.reset()">Clear</button>
+    </mat-dialog-actions>
     <!--
     <mat-form-field>
       <input type="text"  matInput placeholder="Shop" formControlName="shopId" [matAutocomplete]="auto" maxlength="20">
@@ -72,23 +90,5 @@
       <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
     </mat-autocomplete>
 -->
-    <mat-form-field>
-      <input
-        type="text"
-        matInput
-        placeholder="Shop (enter or select)"
-        formControlName="shopId"
-        [matAutocomplete]="auto"
-        maxlength="20"
-      />
-      <mat-autocomplete #auto="matAutocomplete" [displayWith]="filterShops()">
-        <mat-option
-          *ngFor="let option of filteredOptions$ | async"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
   </mat-card-content>
 </mat-card>

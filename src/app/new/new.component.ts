@@ -93,7 +93,7 @@ export class NewComponent implements OnInit {
         this.itemsService.initItems();
         setTimeout(() => {
           this.itemSaved = 'hidden';
-        }, 2000);
+        }, 4000);
         this.loading$.next(false);
       }
     );

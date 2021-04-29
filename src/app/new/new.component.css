@@ -40,9 +40,9 @@ mat-card {
 .msg-saved {
   display: block;
   text-align: center;
-
   font-size: large;
   color: #4caf50;
+  margin-bottom: 0;
 }
 
 .spinner {
@@ -58,6 +58,7 @@ mat-card {
   mat-card {
     width: inherit;
     font-size: 20px;
+    z-index: 0;
   }
 
   mat-card-content {
