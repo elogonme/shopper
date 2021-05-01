@@ -7,6 +7,7 @@ import { CATEGORIES } from '../model/categories';
 import { of } from 'rxjs/internal/observable/of';
 import { Observable, interval, BehaviorSubject } from 'rxjs';
 import { startWith, first } from 'rxjs/operators';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-new',
@@ -14,16 +15,9 @@ import { startWith, first } from 'rxjs/operators';
   styleUrls: ['./new.component.css'],
 })
 export class NewComponent implements OnInit {
-  form: FormGroup;
-  item = new Item();
-  categories = CATEGORIES;
-  lastShopId = '';
-  lastCategory = '';
-  options: string[];
-  loading$ = new BehaviorSubject<boolean>(false);
-
   constructor(
     private itemsService: ItemsService,
+    private dbService: NgxIndexedDBService,
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder
@@ -69,8 +63,16 @@ export class NewComponent implements OnInit {
     });
   }
 
+  form: FormGroup;
+  item = new Item();
+  categories = CATEGORIES;
+  lastShopId = '';
+  lastCategory = '';
+  options: string[];
+  loading$ = new BehaviorSubject<boolean>(false);
   filteredOptions$: Observable<string[]>;
   itemSaved = 'hidden';
+  itemSavedLocal = 'hidden';
 
   ngOnInit(): void {
     this.itemsService.shopsList$.subscribe(
@@ -85,9 +87,19 @@ export class NewComponent implements OnInit {
 
   save() {
     this.loading$.next(true);
+    const newitem = this.form.value;
     this.itemsService.addItem(this.form.value).subscribe(
       (result) => console.log('add service returned', result),
-      (err) => console.log(err),
+      (err) => {
+        console.log('server offline, saving to indexDB');
+        this.dbService.add('items', newitem);
+        this.loading$.next(false);
+        this.itemSavedLocal = 'visible';
+        this.itemsService.initItems();
+        setTimeout(() => {
+          this.itemSavedLocal = 'hidden';
+        }, 4000);
+      },
       () => {
         this.itemSaved = 'visible';
         this.itemsService.initItems();

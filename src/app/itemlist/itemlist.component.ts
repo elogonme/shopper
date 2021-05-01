@@ -15,6 +15,7 @@ import { delay, startWith, tap } from 'rxjs/operators';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-itemlist',
@@ -22,7 +23,11 @@ import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
   styleUrls: ['./itemlist.component.css'],
 })
 export class ItemlistComponent implements OnInit, OnDestroy, AfterViewInit {
-  constructor(private itemsService: ItemsService, private dialog: MatDialog) {}
+  constructor(
+    private dbService: NgxIndexedDBService,
+    private itemsService: ItemsService,
+    private dialog: MatDialog
+  ) {}
 
   displayedColumns: string[] = [
     'done',

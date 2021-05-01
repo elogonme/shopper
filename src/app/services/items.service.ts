@@ -66,6 +66,10 @@ export class ItemsService {
     return this.http.post(this.serverUrl + '/items', item);
   }
 
+  addBulkItems(items: Item[]) {
+    return this.http.post(this.serverUrl + '/items/createmany', items);
+  }
+
   updateItem(id: number, changes: Partial<Item>) {
     return this.http.put(this.serverUrl + `/items/${id}`, changes);
   }
