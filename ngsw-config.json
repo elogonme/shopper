@@ -25,5 +25,17 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+    "name": "items-api",
+    "urls": ["https://shopperbackend.herokuapp.com/*"],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "maxSize": 20,
+      "maxAge": "1h",
+      "timeout": "5s"
+      }
+    }
   ]
 }

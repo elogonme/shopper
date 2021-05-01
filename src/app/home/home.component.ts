@@ -3,8 +3,8 @@ import { ItemsService } from '../services/items.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { ItemsDatasource } from '../model/items.datasource';
-import { Item } from '../model/item';
-import { Subscription, Observable } from 'rxjs';
+
+import { Observable } from 'rxjs';
 import { MatTabGroup } from '@angular/material/tabs';
 
 @Component({

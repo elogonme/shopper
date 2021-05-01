@@ -1,0 +1,96 @@
+{
+  "configVersion": 1,
+  "timestamp": 1619842450640,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.b810baa84e43b7f498e8.js",
+        "/main-es5.b810baa84e43b7f498e8.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.690002c25ea8557bb4b0.js",
+        "/polyfills-es5.9e286f6d9247438cbb02.js",
+        "/runtime-es2015.1eba213af0b233498d9d.js",
+        "/runtime-es5.1eba213af0b233498d9d.js",
+        "/styles.79437a923d6765a29adf.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/demo.gif",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/shopper.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "items-api",
+      "patterns": [
+        "https:\\/\\/shopperbackend\\.herokuapp\\.com\\/[^/]*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 20,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/demo.gif": "ac1da68bb0093641cebadcef378ab6cc51b79f6f",
+    "/assets/icons/icon-128x128.png": "60c9bbae2b751f91550763db4e77d3ea0a1084b1",
+    "/assets/icons/icon-144x144.png": "9b28b40fc22a4eeb0a4e7c8d39b476848b5dc6e4",
+    "/assets/icons/icon-152x152.png": "34d95784ce486f8367691b481e89f56093be15fb",
+    "/assets/icons/icon-192x192.png": "358e2077019ad861864d2447273c14bfba6a0b4a",
+    "/assets/icons/icon-384x384.png": "3b3930c97c66d30a164b851317423eee7b1be853",
+    "/assets/icons/icon-512x512.png": "cc219a69c50fb77ce0355cbf38fca374860dbd2d",
+    "/assets/icons/icon-72x72.png": "eec3568ff99e6b9d60d8434729d38b42289c0bf4",
+    "/assets/icons/icon-96x96.png": "25c7d53195ff7c0a2b1bc2c1ec83ef12531032fe",
+    "/assets/shopper.png": "a4a27c9092eec957670c2ae7701a5b80d6253c10",
+    "/favicon.ico": "77db20ff4c8ace39c9bb6fce0559ef70fb1180a8",
+    "/index.html": "e69ab45c2adc21b8d837a9c8b8296b2c3540e811",
+    "/main-es2015.b810baa84e43b7f498e8.js": "1f36ad220e496f47e09fc2dfbdbe39ea8d5bb20b",
+    "/main-es5.b810baa84e43b7f498e8.js": "85cf2a6b0a856df5211e3f4401ea31a188e6eb02",
+    "/manifest.webmanifest": "aefd86e94b9a20929785cf09dd2acfa812ecacd6",
+    "/polyfills-es2015.690002c25ea8557bb4b0.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/polyfills-es5.9e286f6d9247438cbb02.js": "e51a1de4f016cd689dbdbef51043dec9518c4111",
+    "/runtime-es2015.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.1eba213af0b233498d9d.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.79437a923d6765a29adf.css": "aefb8f30916efdc31d57874bbab23684bba38bda"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

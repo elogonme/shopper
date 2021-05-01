@@ -2,12 +2,12 @@ mat-tab-label {
   color: #3b3b3b !important;
 }
 
-.spinner {
-  width: 10px;
+mat-spinner {
+  width: 50px;
   position: fixed;
-  margin-top: 50px;
-  margin-left: 45vw;
-  margin-right: auto;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 11;
 }
 

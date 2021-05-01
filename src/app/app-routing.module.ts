@@ -6,33 +6,32 @@ import { UserComponent } from './user/user.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './user/auth.interceptor';
 
-
 const routes: Routes = [
   {
     path: '',
-    component: UserComponent
-},
+    component: UserComponent,
+  },
 
-{
-  path: 'new',
-  component: NewComponent
-},
-{
-  path: 'login',
-  component: UserComponent
-},
-{
-path: 'home',
-  component: HomeComponent
-},
-{
-  path: 'exit',
-  component: HomeComponent
-},
-{
-  path: '**',
-  redirectTo: '/'
-},
+  {
+    path: 'new',
+    component: NewComponent,
+  },
+  {
+    path: 'login',
+    component: UserComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  // {
+  //   path: 'exit',
+  //   component: HomeComponent
+  // },
+  {
+    path: '**',
+    redirectTo: '/',
+  },
 ];
 
 @NgModule({
@@ -44,6 +43,6 @@ path: 'home',
       useClass: AuthInterceptor,
       multi: true,
     },
-  ]
+  ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
